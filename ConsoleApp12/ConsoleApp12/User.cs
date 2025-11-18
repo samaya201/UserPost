@@ -1,43 +1,46 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Numerics;
-using System.Text;
-using System.Threading.Tasks;
+﻿using ConsoleApp12;
 
-namespace ConsoleApp12;
-
-
-class User
+public class User
 {
-    
-    public int Id;
-    public string Name;
-    public string Username;
-    public string Email;
-    public string Phone;
-    public string Website;
-    public bool IsDeleted = false;
-    /*public User(string username, string name, string email, string phone, string website)
+    public int Id { get; set; }
+    private string Name { get; set; }
+    public string Username { get; set; }
+    public string Email { get; set; }
+    public string Phone { get; set; }
+    public string Website { get; set; }
+    public bool IsDeleted { get; set; } = false;
+
+    public User()
     {
-        Username = username;
+
+    }
+    public User(int id, string name, string username, string email, string phone, string website)
+    {
+        if (name==null)
+            throw new EmptyFieldException("Name can't be empty!");
+
+        if (username==null)
+            throw new EmptyFieldException("Username can't be empty!");
+
+        if (email == null)
+            throw new EmptyFieldException("Email can't be empty!");
+
+        if (phone == null)
+            throw new EmptyFieldException("Phone can't be empty!");
+
+        if (website == null)
+            throw new EmptyFieldException("Website can't be empty!");
+
+        Id = id;
         Name = name;
+        Username = username;
         Email = email;
         Phone = phone;
         Website = website;
-        Id = _idDefault++;
-    }*/
+    }
 
+    public string GetName()
+    {
+        return Name;
+    }
 }
-/*
- * "id": 1, - private
-"name": "Leanne Graham",
-"username": "Bret",
-"email": "Sincere@april.biz",
-"phone": "1-770-736-8031 x56442",
-"website": "hildegard.org",
-
-
-user ve post crud(create, read, udate, delete) => delete soft delete olmalidir.IsDeleted true/false olaraq dəyişməlisiniz.
-terminalda render edərkən isDeleted false olanlar görsənməlidir.*/
-
